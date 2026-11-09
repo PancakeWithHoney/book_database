@@ -3,6 +3,7 @@ import re
 
 import requests
 from bs4 import BeautifulSoup
+from parsers.data_schema import BOOK_FIELDS
 
 
 def parse_book(url):
@@ -149,6 +150,9 @@ def parse_book(url):
         "source_url": url,
         "image_url": image_url,
     }
+
+    # Проверяем, что структура книги соответствует общей схеме
+    book = {field: book.get(field) for field in BOOK_FIELDS}
 
     return book
 
