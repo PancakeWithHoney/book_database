@@ -52,6 +52,7 @@ def parse_book24(url):
     # ISBN и издательство
     book["isbn"] = meta_data.get("isbn")
     book["publisher"] = meta_data.get("publisher")
+    book["price"] = meta_data.get("product:price:amount")
 
     # Описание и обложка
     book["description"] = (

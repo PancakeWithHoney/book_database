@@ -5,6 +5,7 @@ BOOK_FIELDS = [
     "publisher",
     "year",
     "pages",
+    "price",
     "description",
     "image_url",
     "source_url",
