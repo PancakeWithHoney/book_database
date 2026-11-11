@@ -15,6 +15,15 @@ print("Статус ответа:", response.status_code)
 if response.status_code == 200:
     soup = BeautifulSoup(response.text, "html.parser")
 
+    print("\nСсылки на страницы каталога:")
+
+    for link in soup.find_all("a", href=True):
+        text = link.get_text(strip=True)
+        href = link["href"]
+
+        if text.isdigit() or "next" in href.lower():
+            print("Текст:", text, "| Ссылка:", href)
+
     print("\nЗаголовок страницы:")
     print(soup.title.get_text(strip=True) if soup.title else "Не найден")
 
